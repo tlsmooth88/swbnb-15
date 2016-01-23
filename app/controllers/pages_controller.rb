@@ -9,11 +9,11 @@ class PagesController < ApplicationController
   end
   
   def seattle_host_list
-    @seattlehosts = User.where(location: "Seattle")
+    @seattlehosts = User.where(location: "Seattle").where(hosting: true)
   end
   
   def tokyo_host_list
-    @tokyohosts = User.where("location = 'Tokyo' ")
+    @tokyohosts = User.where(location: "Tokyo").where(hosting: true)
   end
 =begin  
   private
