@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_user, only: [:home, :profile, :seattle_host_list, :tokyo_host_list]
+  # before_action :set_user, only: [:home, :profile, :seattle_host_list, :tokyo_host_list]
   
   def home
   end
@@ -9,13 +9,13 @@ class PagesController < ApplicationController
   end
   
   def seattle_host_list
-    @seattlehosts = User.where("location = 'Seattle' ")
+    @seattlehosts = User.where(location: "Seattle")
   end
   
   def tokyo_host_list
     @tokyohosts = User.where("location = 'Tokyo' ")
   end
-  
+=begin  
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :location, :hosting)
@@ -24,4 +24,5 @@ class PagesController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+=end
 end
