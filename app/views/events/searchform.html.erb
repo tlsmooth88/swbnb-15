@@ -1,0 +1,12 @@
+<h1>Date Search</h1>
+
+<%= form_for(@event) do |f| %>
+  <div class="field">
+    <%= f.label :start %><br>
+    <%= f.date_select :start %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

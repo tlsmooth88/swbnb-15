@@ -50,7 +50,14 @@ class EventsController < ApplicationController
       end
     end
   end
-
+  
+  def searchform
+    @event = Event.new #in order to avoid error
+  end
+  
+  def search
+  end
+  
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
