@@ -1,0 +1,14 @@
+<h1>Abledate Search</h1>
+
+<div class="search_form">
+  <%= form_for @abledate_form, url: '#', method: :get do |f| %>
+    <%= f.date_select :start %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<div class="result">
+  <% @abledates.each do |abledate| %>
+    <<%= abledate.user_id %>
+  <% end %>
+</div>

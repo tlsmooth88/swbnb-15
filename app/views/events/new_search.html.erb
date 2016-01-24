@@ -1,7 +1,17 @@
 <!-- <h1>Register Available Dates</h1><br /> -->
 <h1>宿泊希望日で検索してください</h1>
 
-<%= render 'form' %>
-<br />
-<%= link_to 'Something', '#' %>
-<br />
+<%= form_for(@event) do |f| %>
+
+  <div class="field">
+    <%= f.label :start %><br>
+    <%= f.date_select :start %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% @hosts.each do |host| %>
+  <%= host.name %><br />
+<% end %>

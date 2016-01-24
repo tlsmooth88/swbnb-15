@@ -58,8 +58,7 @@ class EventsController < ApplicationController
   
   # POST /search
   def search
-    @search = current_user.events.build(event_params)
-    redirect_to @user
+    
   end
 
   # DELETE /events/1
