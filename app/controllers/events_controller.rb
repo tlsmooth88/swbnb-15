@@ -50,6 +50,17 @@ class EventsController < ApplicationController
       end
     end
   end
+    
+  # GET /search/new
+  def new_search
+    @event = Event.new #これいれないとformがrenderされないのでいれとく
+  end
+  
+  # POST /search
+  def search
+    @search = current_user.events.build(event_params)
+    redirect_to @user
+  end
 
   # DELETE /events/1
   # DELETE /events/1.json
@@ -60,7 +71,7 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

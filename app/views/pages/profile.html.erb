@@ -8,5 +8,7 @@
   <%= @user.hosting %>
   <br />
   <br />
-  <div id="calendar"></div>
+  <% if current_user.hosting == true %>
+    <div id="calendar"></div>
+  <% end %>
 </h1>

@@ -1,22 +1,25 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Microposts", '#', id: "logo" %>
+    <%= link_to "Ourbnb", '#', id: "logo" %>
     <nav>
       <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Profile", profile_path %></li>
+        <li><%= link_to current_user.username, profile_path %></li>
         <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
         <% if current_user.location == "Seattle" %>
           <li><%= link_to "Tokyo Hosts", tokyohostlist_path %></li>
         <% elsif current_user.location == "Tokyo" %>
           <li><%= link_to "Seattle Hosts", seattlehostlist_path %></li>
         <% end %>
+        <li><%= link_to "Search", search_path %></li>
+        <% if current_user.hosting == true %>
+          <li><%= link_to "Host Management", new_event_path %></li>
+        <% end %>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
       <% else %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li><%= link_to "Help",   '#' %></li>
+        <li><%= link_to " ", new_user_registration_path %></li> <!-- For admin only -->
         <li><%= link_to "Log in", new_user_session_path %></li>
       </ul>
       <% end %>
