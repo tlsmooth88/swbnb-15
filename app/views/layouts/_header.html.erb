@@ -4,8 +4,7 @@
     <nav>
       <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to current_user.username, profile_path %></li>
-        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li><%= link_to current_user.username + " @" + current_user.location, profile_path %></li>
         <% if current_user.location == "Seattle" %>
           <li><%= link_to "Tokyo Hosts", tokyohostlist_path %></li>
         <% elsif current_user.location == "Tokyo" %>
@@ -14,6 +13,8 @@
         <li><%= link_to "Search", search_path %></li>
         <% if current_user.hosting == true %>
           <li><%= link_to "Hosting Management", new_event_path %></li>
+        <% else %>
+          <li><%= link_to "Become a Host?", edit_user_registration_path %></li>       
         <% end %>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
@@ -25,4 +26,4 @@
       <% end %>
     </nav>
   </div>
-</header>
+</header> 

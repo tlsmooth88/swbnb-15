@@ -1,5 +1,10 @@
-<!-- <h1>Register Available Dates</h1><br /> -->
-<h1>宿泊者受け入れ可能日を登録してください</h1>
+<h1>
+<% if current_user.location == "Seattle" %>
+Register Available Dates
+<% elsif current_user.location == "Tokyo" %>
+宿泊者受け入れ可能日を登録してください
+<% end %>
+</h1>
 
 <%= render 'form' %>
 <br />

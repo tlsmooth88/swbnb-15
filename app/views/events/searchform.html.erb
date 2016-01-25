@@ -1,4 +1,10 @@
-<h1>Date Search</h1>
+<h1>
+<% if current_user.location == "Seattle" %>
+Date Search
+<% elsif current_user.location == "Tokyo" %>
+宿泊希望日で検索してください
+<% end %>
+</h1>
 
 <%= form_for(@event) do |f| %>
   <div class="field">
@@ -10,3 +16,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+<br />
+<%= link_to 'Back', events_path %>

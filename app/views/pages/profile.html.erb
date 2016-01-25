@@ -1,5 +1,7 @@
 <h1>
   <%= @user.username %>
+</h1>
+<p>
   <br />
   <%= @user.email %>
   <br />
@@ -7,8 +9,17 @@
   <br />
   <%= @user.hosting %>
   <br />
+<p/>
+<p>
+  <%= link_to "Change Password?", edit_user_registration_path %>
   <br />
   <% if current_user.hosting == true %>
-    <div id="calendar"></div>
+    <%= link_to "Unbecome a Host?", edit_user_registration_path %>
+  <% else %>
+    <%= link_to "Become a Host?", edit_user_registration_path %>
   <% end %>
-</h1>
+  <br />
+</p>
+<% if current_user.hosting == true %>
+  <div id="calendar"></div>
+<% end %>
