@@ -51,11 +51,15 @@ class EventsController < ApplicationController
     end
   end
   
-  def searchform
-    @event = Event.new #in order to avoid error
-  end
-  
   def search
+    # @event = Event.new #in order to avoid error
+    if params[:start]
+      
+      date_hash = params[:start]
+      date_string = "#{date_hash['(1i)']}-#{date_hash['(2i)']}-#{date_hash['(3i)']}"
+      
+      @dates = Event.where("start = ?", date_string)
+    end
   end
   
   # DELETE /events/1

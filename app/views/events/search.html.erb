@@ -15,6 +15,7 @@ Date Search
 
 <% if @dates.present? %>
   <% @dates.each do |date| %>
-    <%= date.user.username %><br>
+    <%= date.user_id %>
+    <%= date.user.username %>
   <% end %>
-<% end  %>
+<% end %>

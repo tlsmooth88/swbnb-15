@@ -2,7 +2,9 @@ class PagesController < ApplicationController
   # before_action :set_user, only: [:home, :profile, :seattle_host_list, :tokyo_host_list]
   
   def home
-    redirect_to profile_path
+    if user_signed_in?
+      redirect_to profile_path
+    end
   end
 
   def profile
