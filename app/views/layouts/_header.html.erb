@@ -10,7 +10,7 @@
         <% elsif current_user.location == "Tokyo" %>
           <li><%= link_to "Seattle Hosts", seattlehostlist_path %></li>
         <% end %>
-        <li><%= link_to "Search", search_path %></li>
+        <li><%= link_to "Search", event_search_form_path %></li>
         <% if current_user.hosting == true %>
           <li><%= link_to "Hosting Management", new_event_path %></li>
         <% else %>

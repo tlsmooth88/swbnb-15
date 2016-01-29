@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile' 
   get 'seattlehostlist' , to: 'pages#seattle_host_list'
   get 'tokyohostlist' , to: 'pages#tokyo_host_list'
-  get 'search', to: 'events#search'
-  # post 'search', to: 'events#search'
-  
+  # get 'search', to: 'events#search'
+  get 'search', to: 'events#searchform', as: :event_search_form
+  post 'search', to: 'events#search', as: :event_search
+
   devise_for :users
   resources :events
   
