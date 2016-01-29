@@ -52,12 +52,11 @@ class EventsController < ApplicationController
   end
   
   def search
-    # @event = Event.new #in order to avoid error
+    # @event = Event.new #in order to avoid errors
     if params[:start]
-      
       date_hash = params[:start]
       date_string = "#{date_hash['(1i)']}-#{date_hash['(2i)']}-#{date_hash['(3i)']}"
-      
+      # @dates = Event.where("start = ?", params[:start])
       @dates = Event.where("start = ?", date_string)
     end
   end
