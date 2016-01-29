@@ -20,6 +20,14 @@
   <% end %>
   <br />
 </p>
+
+<% if @user.yoyakus.any? %>
+  <h3>Your Reservations</h3>
+  <ol class="yoyaku">
+    <%= render @yoyakus %>
+  </ol>
+<% end %>
+
 <% if current_user.hosting == true %>
   <div id="calendar"></div>
 <% end %>

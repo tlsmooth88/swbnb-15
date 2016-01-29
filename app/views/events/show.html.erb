@@ -2,7 +2,8 @@
 
 <p>
   <strong>Start:</strong>
-  <%= @event.start %>
+  <%= @event.start %><br />
+  <%= @event.user.username %>
 </p>
 <!--
 <p>
@@ -10,5 +11,10 @@
   <%= @event.end %>
 </p>
 -->
-<%= link_to 'Edit', edit_event_path(@event) %> |
+
+<%= form_for(Yoyaku.new) do |f| %>
+  <%= f.submit "Reserve", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Back', events_path %>

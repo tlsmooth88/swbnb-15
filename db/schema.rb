@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124112831) do
+ActiveRecord::Schema.define(version: 20160129194147) do
 
   create_table "abledates", force: :cascade do |t|
     t.date     "start"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bookings", ["event_id", "created_at"], name: "index_bookings_on_event_id_and_created_at"
+  add_index "bookings", ["event_id"], name: "index_bookings_on_event_id"
 
   create_table "events", force: :cascade do |t|
     t.date     "start"
@@ -47,5 +56,23 @@ ActiveRecord::Schema.define(version: 20160124112831) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "yoyakus", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "event_id"
+  end
+
+  add_index "yoyakus", ["user_id"], name: "index_yoyakus_on_user_id"
+
+  create_table "yoyaqs", force: :cascade do |t|
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "yoyaqs", ["event_id", "created_at"], name: "index_yoyaqs_on_event_id_and_created_at"
+  add_index "yoyaqs", ["event_id"], name: "index_yoyaqs_on_event_id"
 
 end

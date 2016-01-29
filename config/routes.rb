@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get 'seattlehostlist' , to: 'pages#seattle_host_list'
   get 'tokyohostlist' , to: 'pages#tokyo_host_list'
   get 'search', to: 'events#search'
+  # post 'search', to: 'yoyakus#create'
 
   devise_for :users
   resources :events
+  resources :yoyakus
   
   # get 'pages/profile'
 end
