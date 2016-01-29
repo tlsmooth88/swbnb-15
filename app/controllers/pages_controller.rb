@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @reservations = @user.reservations
+    @events = Event.all
   end
   
   def seattle_host_list

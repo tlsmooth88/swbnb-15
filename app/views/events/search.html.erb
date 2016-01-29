@@ -17,9 +17,10 @@ Date Search
 <!-- 結果表示 -->
 <% if @dates.present? %>
   <% @dates.each do |date| %>
-    <%= date.start %>
-    <%= date.user.username %>
-    <%= link_to "詳細", event_path(date) %>
-    <%= link_to "予約", search_path, method: :post %>
+    <%= date.start %><br />
+    <%= date.user.username %><br />
+    <%= link_to "詳細", event_path(date) %><br />
+    <%= link_to "予約", edit_event_path(date) %><br />
+    <%= link_to "すぐ予約", search_path, method: :post %><br />
   <% end %>
 <% end %>

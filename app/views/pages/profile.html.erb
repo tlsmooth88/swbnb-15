@@ -21,12 +21,24 @@
   <br />
 </p>
 
+<tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.start %></td>
+        <td><%= event.user.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--
 <% if @user.reservations.any? %>
   <h3>Your Reservations</h3>
   <ol class="reservation">
     <%= render @reservations %>
   </ol>
 <% end %>
+-->
 
 <% if current_user.hosting == true %>
   <div id="calendar"></div>
