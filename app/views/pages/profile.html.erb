@@ -3,11 +3,15 @@
 </h1>
 <p>
   <br />
-  <%= @user.email %>
+  <h3>Email: <%= @user.email %></h3>
   <br />
-  <%= @user.location %>
+  <h3>Location: <%= @user.location %></h3>
   <br />
-  <%= @user.hosting %>
+  <% if current_user.hosting == true %>
+    <h3>Host: Yes</h3>
+  <% else %>
+    <h3>Host: No</h3>
+  <% end %>
   <br />
 <p/>
 <p>
@@ -18,18 +22,14 @@
   <% else %>
     <%= link_to "Become a Host?", edit_user_registration_path %>
   <% end %>
-  <br />
 </p>
 
-<tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.start %></td>
-        <td><%= event.user.username %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h3>Your Reservations</h3>
+<h4>
+<% @events.each do |event| %>
+  <%= event.start %>  @ <%= event.user.username %>'s House<br />
+<% end %>
+</h4>
 
 <!--
 <% if @user.reservations.any? %>
