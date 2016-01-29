@@ -21,10 +21,10 @@
   <br />
 </p>
 
-<% if @user.yoyakus.any? %>
+<% if @user.reservations.any? %>
   <h3>Your Reservations</h3>
-  <ol class="yoyaku">
-    <%= render @yoyakus %>
+  <ol class="reservation">
+    <%= render @reservations %>
   </ol>
 <% end %>
 

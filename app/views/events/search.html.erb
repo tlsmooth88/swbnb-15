@@ -20,5 +20,6 @@ Date Search
     <%= date.start %>
     <%= date.user.username %>
     <%= link_to "詳細", event_path(date) %>
+    <%= link_to "予約", search_path, method: :post %>
   <% end %>
 <% end %>

@@ -2,7 +2,11 @@
 
 <p>
   <strong>Start:</strong>
-  <%= @event.start %><br />
+  <br />
+  <%= @event.id %>
+  <br />
+  <%= @event.start %>
+  <br />
   <%= @event.user.username %>
 </p>
 <!--
@@ -12,7 +16,8 @@
 </p>
 -->
 
-<%= form_for(Yoyaku.new) do |f| %>
+<%= form_for(Reservation.new) do |f| %>
+  <div><%= hidden_field_tag :event_id, @event.id %></div>
   <%= f.submit "Reserve", class: "btn btn-primary" %>
 <% end %>
 

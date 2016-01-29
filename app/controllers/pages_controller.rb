@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
-    @yoyakus = @user.yoyakus
+    @reservations = @user.reservations
   end
   
   def seattle_host_list
